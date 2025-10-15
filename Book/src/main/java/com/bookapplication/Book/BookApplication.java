@@ -5,10 +5,15 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScan.Filter;
+import org.springframework.context.annotation.FilterType;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import com.bookapplication.service.OfflineBookService;
+import com.bookapplication.service.OnlineBookService;
+
 @SpringBootApplication
-@ComponentScan(basePackages = "com.*")
+@ComponentScan(basePackages = "com.*",excludeFilters = @Filter(type = FilterType.ASSIGNABLE_TYPE,classes = OfflineBookService.class))
 @EnableAutoConfiguration
 @EntityScan(basePackages = "com.bookapplication.model")
 @EnableJpaRepositories(basePackages = "com.bookapplication.repository")
