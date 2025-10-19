@@ -7,7 +7,9 @@ public class ServletInitializer extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+	System.out.println("dsfs");
 		return application.sources(ScopeApplication.class);
+  
 	}
 
 }
