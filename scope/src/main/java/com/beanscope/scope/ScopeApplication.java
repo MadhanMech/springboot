@@ -8,7 +8,7 @@ public class ScopeApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ScopeApplication.class, args);
-		System.out.println("hai");
+	
 	}
 
 }
