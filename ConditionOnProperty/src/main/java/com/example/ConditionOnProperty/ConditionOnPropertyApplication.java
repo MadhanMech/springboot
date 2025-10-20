@@ -8,6 +8,7 @@ public class ConditionOnPropertyApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ConditionOnPropertyApplication.class, args);
+		System.out.println("dsfsd");
 	}
 
 }
