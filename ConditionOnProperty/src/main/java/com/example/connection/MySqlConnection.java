@@ -1,9 +1,11 @@
 package com.example.connection;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
+@Profile({"prod","qa"})
 @ConditionalOnProperty(
 		prefix = "sqlconnection",
 		value = "enabled",
