@@ -6,11 +6,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bookapplication.model.Book;
 import com.bookapplication.repository.BookRepository;
 @Service
-
+@Primary
 public class OnlineBookService implements BookService {
 	  private final BookRepository bookRepository;
       
@@ -19,8 +20,9 @@ public class OnlineBookService implements BookService {
 		   public OnlineBookService(BookRepository bookRepository){
 			   	this.bookRepository=bookRepository;
 		   }
-			
+	     @Transactional
 	     public Book addBook(Book book) {
+	    	
 				Book save=bookRepository.save(book);
 				return save;
 				

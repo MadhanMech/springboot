@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bookapplication.model.Book;
 import com.bookapplication.repository.BookRepository;
@@ -19,6 +20,8 @@ public class OfflineBookService implements BookService {
 			   	this.bookRepository=bookRepository;
 		   }
 			
+	     
+	    
 	     public Book addBook(Book book) {
 				Book save=bookRepository.save(book);
 				return save;
