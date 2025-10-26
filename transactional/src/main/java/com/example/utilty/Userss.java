@@ -1,4 +1,4 @@
-package com.bookapplication.utilty;
+package com.example.utilty;
 
 import org.springframework.stereotype.Component;
 

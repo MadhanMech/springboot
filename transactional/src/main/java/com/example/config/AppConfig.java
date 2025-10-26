@@ -1,4 +1,4 @@
-package com.bookapplication.config;
+package com.example.config;
 
 import javax.sql.DataSource;
 

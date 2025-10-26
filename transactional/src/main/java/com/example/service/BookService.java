@@ -1,10 +1,11 @@
-package com.bookapplication.service;
+package com.example.service;
 
 
 
 import java.util.List;
 import java.util.Optional;
-import com.bookapplication.model.Book;
+
+import com.example.model.Book;
 
 public interface BookService {
     Book addBook(Book book);

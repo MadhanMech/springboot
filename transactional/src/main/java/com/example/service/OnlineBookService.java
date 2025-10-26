@@ -1,4 +1,4 @@
-package com.bookapplication.service;
+package com.example.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bookapplication.model.Book;
-import com.bookapplication.repository.BookRepository;
+import com.example.model.Book;
+import com.example.repository.BookRepository;
 @Service
 @Primary
 public class OnlineBookService implements BookService {

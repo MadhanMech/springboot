@@ -1,4 +1,4 @@
-package com.bookapplication.DAO;
+package com.example.DAO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

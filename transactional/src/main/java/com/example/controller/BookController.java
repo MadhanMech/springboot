@@ -1,4 +1,4 @@
-package com.bookapplication.controller;
+package com.example.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bookapplication.model.Book;
-import com.bookapplication.service.BookService;
+import com.example.model.Book;
+import com.example.service.BookService;
 
 
 @RestController

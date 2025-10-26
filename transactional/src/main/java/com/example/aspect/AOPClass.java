@@ -1,4 +1,4 @@
-package com.bookapplication.aspect;
+package com.example.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;

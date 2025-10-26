@@ -1,14 +1,13 @@
-package com.bookapplication.service;
+package com.example.service;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.bookapplication.model.Book;
-import com.bookapplication.repository.BookRepository;
+import com.example.model.Book;
+import com.example.repository.BookRepository;
 @Service
 
 public class OfflineBookService implements BookService {
