@@ -20,6 +20,7 @@ public class OnlineBookService implements BookService {
 		   public OnlineBookService(BookRepository bookRepository){
 			   	this.bookRepository=bookRepository;
 		   }
+//	     @Transactional(transactionManager = "transactionManager")
 	     @Transactional
 	     public Book addBook(Book book) {
 	    	
