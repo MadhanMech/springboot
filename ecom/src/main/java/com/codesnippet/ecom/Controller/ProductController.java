@@ -34,8 +34,8 @@ public class ProductController {
 //	}
 	
 	
-	// Exception Handler Method 
-//
+// Exception Handler Method 
+
 	
 	@GetMapping("/getProductById/{productId}")
 	public ResponseEntity<?> getBookById(@PathVariable("productId") Integer productId) {

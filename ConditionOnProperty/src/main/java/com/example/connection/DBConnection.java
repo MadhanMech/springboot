@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import jakarta.annotation.PostConstruct;
 
 @Component
-@Profile("dev")
+@Profile({"qa","dev"})
 public class DBConnection {
 	@Autowired(required = false)
 	MySqlConnection mySqlConnection;

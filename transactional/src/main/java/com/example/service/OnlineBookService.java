@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.model.Book;
@@ -21,7 +22,7 @@ public class OnlineBookService implements BookService {
 			   	this.bookRepository=bookRepository;
 		   }
 //	     @Transactional(transactionManager = "transactionManager")
-	     @Transactional
+	     @Transactional(propagation = Propagation.MANDATORY)
 	     public Book addBook(Book book) {
 //	    	  fdfsdfsdfd
 				Book save=bookRepository.save(book);
