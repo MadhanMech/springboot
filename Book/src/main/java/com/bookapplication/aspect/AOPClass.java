@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class AOPClass {
-   
+//   dfsd
 	@Pointcut("execution(* com.bookapplication.service.*.*(..))") 
     private void addBookPointCut() {}
 
