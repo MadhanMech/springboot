@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.beanscope.entity.User;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/api")
-@Scope("prototype")
+@Scope("session")
 public class EmployeeController {
 	@Autowired
 	 User user;
@@ -32,8 +33,14 @@ public class EmployeeController {
 	@GetMapping("/fetchUser")
 	public ResponseEntity<String>getUserDetails(){
 		
-		System.out.println("fetch User APi");
+		
 		return ResponseEntity.status(HttpStatus.OK).body("Ok");
+		
+	}
+	@GetMapping("/logout")
+	public ResponseEntity<String> logout(HttpServletRequest request) {
+		request.getSession().invalidate();
+		return ResponseEntity.status(HttpStatus.OK).body("logged out successfully");
 		
 	}
 	

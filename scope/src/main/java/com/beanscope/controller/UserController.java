@@ -15,7 +15,7 @@ import jakarta.annotation.PostConstruct;
 
 @RestController
 @RequestMapping("/api")
-@Scope("prototype")
+@Scope("singleton")
 public class UserController {
 
 
