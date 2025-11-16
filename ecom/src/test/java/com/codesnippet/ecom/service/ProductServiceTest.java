@@ -1,21 +1,33 @@
 package com.codesnippet.ecom.service;
 
-import com.codesnippet.ecom.Entity.Product;
-import com.codesnippet.ecom.Repository.ProductRepository;
-import com.codesnippet.ecom.Service.ProductService;
-import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import com.codesnippet.ecom.Entity.Product;
+import com.codesnippet.ecom.Repository.ProductRepository;
+import com.codesnippet.ecom.Service.ProductService;
 
 @ExtendWith(MockitoExtension.class)
 public class ProductServiceTest {
@@ -62,9 +74,9 @@ public class ProductServiceTest {
     }
     @Test
     public void deleteProductShouldDeleteProductSuccessfully(){
-        doNothing().when(productRepository).deleteById(1);
+        doNothing().when(productRepository).deleteById(1);//when method not return nothing we should use this line
         productService.deleteProduct(1);
-        verify(productRepository, times(1) ).deleteById(1);
+        verify(productRepository, times(1) ).deleteById(1);//it verfity delectProduct method will exe cute one time or not
     }
     @Test
     void testPrivateMethod_validateProductName() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
