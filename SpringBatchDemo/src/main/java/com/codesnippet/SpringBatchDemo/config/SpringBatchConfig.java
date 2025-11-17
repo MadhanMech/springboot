@@ -34,7 +34,7 @@ public class SpringBatchConfig {
 		return new FlatFileItemReaderBuilder<Person>()
 				.name("personItemReader")
 				.resource(new ClassPathResource("people-1000.csv"))
-				.linesToSkip(1)
+				.linesToSkip(1)//it skip first line from csv file
 				.lineMapper(lineMapper())
 				.targetType(Person.class)
 				.build();
@@ -44,7 +44,7 @@ public class SpringBatchConfig {
 
 		DelimitedLineTokenizer lineTokenizer = new DelimitedLineTokenizer();
 		lineTokenizer.setDelimiter(",");
-		lineTokenizer.setStrict(false);
+		lineTokenizer.setStrict(false);//If any field has null value it will accpect ,if true it will not accept
 		lineTokenizer.setNames("id", "userId", "firstName", "lastName", "gender", "email", "phone", "dateOfBirth", "jobTitle");
 
 		BeanWrapperFieldSetMapper<Person> fieldSetMapper = new BeanWrapperFieldSetMapper<>();
