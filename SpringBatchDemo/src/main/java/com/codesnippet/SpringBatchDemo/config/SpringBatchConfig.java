@@ -80,7 +80,7 @@ public class SpringBatchConfig {
 	@Bean
 	public Step step(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
 		return new StepBuilder("csv-import-step", jobRepository)
-				.<Person, Person>chunk(10, transactionManager)
+				.<Person, Person>chunk(10, transactionManager)//At a time it 10 record
 				.reader(reader())
 				.processor(processor())
 				.writer(writer())
