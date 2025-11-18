@@ -2,12 +2,19 @@ package com.codesnippet.application_management_system.controllers;
 
 
 
-import com.codesnippet.application_management_system.Entity.Applicant;
-import com.codesnippet.application_management_system.service.ApplicantService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.codesnippet.application_management_system.Entity.Applicant;
+import com.codesnippet.application_management_system.Entity.Resume;
+import com.codesnippet.application_management_system.service.ApplicantService;
 
 @RestController
 @RequestMapping("/api/applicants")
@@ -22,6 +29,12 @@ public class ApplicantController {
     }
     @PostMapping
     public Applicant saveApplicant(@RequestBody Applicant applicant) {
+    	 Resume resume=applicant.getResume();
+    	 if(resume!=null) {
+    		 resume.setApplicant(applicant);
+    		
+    	 }
+    	
         return applicantService.saveApplicantCrud(applicant);
     }
 

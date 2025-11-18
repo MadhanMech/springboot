@@ -1,15 +1,15 @@
 package com.codesnippet.application_management_system.service;
 
-import com.codesnippet.application_management_system.Entity.Applicant;
-import com.codesnippet.application_management_system.repositories.ApplicantCrudRepository;
-import com.codesnippet.application_management_system.repositories.ApplicantJpaRepository;
-import com.codesnippet.application_management_system.repositories.ApplicantPagingAndSortingRepository;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.codesnippet.application_management_system.Entity.Applicant;
+import com.codesnippet.application_management_system.repositories.ApplicantCrudRepository;
+import com.codesnippet.application_management_system.repositories.ApplicantJpaRepository;
+import com.codesnippet.application_management_system.repositories.ApplicantPagingAndSortingRepository;
 
 @Service
 public class ApplicantService {

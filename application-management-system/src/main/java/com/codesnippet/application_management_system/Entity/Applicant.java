@@ -1,9 +1,11 @@
 package com.codesnippet.application_management_system.Entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Applicant {
@@ -19,7 +21,20 @@ public class Applicant {
 
     private String status;
 
-    public Long getId() {
+    @OneToOne(mappedBy ="applicant",cascade = CascadeType.ALL)//should small not capital not Applicant ,applicant is correct
+    private Resume resume;
+    
+    
+    
+    public Resume getResume() {
+		return resume;
+	}
+
+	public void setResume(Resume resume) {
+		this.resume = resume;
+	}
+
+	public Long getId() {
         return id;
     }
 
@@ -46,6 +61,7 @@ public class Applicant {
     public String getPhone() {
         return phone;
     }
+    
 
     public void setPhone(String phone) {
         this.phone = phone;
