@@ -1,8 +1,12 @@
 package com.codesnippet.application_management_system.controllers;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,6 +35,20 @@ public class ResumeController {
 		    
 		 
 		   return ResponseEntity.status(HttpStatus.CREATED).body(resumeService.saveResume(applicantId,resume));
+	  }
+	 
+	 @GetMapping("/{id}")
+	  public ResponseEntity<?>getResumeById(@PathVariable Long id ){
+		    
+			try {
+				 return ResponseEntity.status(HttpStatus.CREATED).body(resumeService.getResumeById(id));
+			}
+			catch(RuntimeException e) {
+				Map<String, String> error = new HashMap<>();
+		        error.put("message", e.getMessage());
+		        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+			}
+		  
 	  }
 	
 }

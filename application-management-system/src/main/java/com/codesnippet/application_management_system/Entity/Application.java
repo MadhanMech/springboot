@@ -8,7 +8,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 
 @Entity
 public class Application {
@@ -16,7 +15,7 @@ public class Application {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String status;
-	private String positon;
+	private String position;
 	
 	@ManyToOne
 	@JoinColumn(name="applicant_id",nullable=false)
@@ -39,12 +38,12 @@ public class Application {
 		this.status = status;
 	}
 
-	public String getPositon() {
-		return positon;
+	public String getPosition() {
+		return position;
 	}
 
-	public void setPositon(String positon) {
-		this.positon = positon;
+	public void setPosition(String positon) {
+		this.position = positon;
 	}
 
 	public Applicant getApplicant() {

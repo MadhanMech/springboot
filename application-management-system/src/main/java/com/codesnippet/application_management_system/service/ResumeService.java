@@ -20,6 +20,12 @@ public class ResumeService {
 		 this.applicantJpaRpository=applicantJpaRpository;
 	 }
 	 
+	 
+	 public Resume getResumeById (Long id){
+		  return	resumeRepository.findById(id).orElseThrow(()->new RuntimeException("Resume Not Found"));
+	 }
+	 
+	 
 	 public Resume saveResume(Long applicantId, Resume resume) {
 	        // Fetch the applicant from DB
 		  
@@ -33,5 +39,6 @@ public class ResumeService {
 	        // Save resume
 	        return resumeRepository.save(resume);
 	    }
+	
 	
 }

@@ -8,6 +8,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
@@ -31,8 +34,17 @@ public class Applicant {
     @OneToMany(mappedBy ="applicant",cascade = CascadeType.ALL)//should small not capital not Applicant ,applicant is correct,this cascade use before applicant insert  ,resume will added
     private List<Application> application=new ArrayList<>(); 
     
-    
+    @ManyToMany
+    @JoinTable(name="applicants_jobs",joinColumns= @JoinColumn(name="applicantId"),inverseJoinColumns = @JoinColumn(name="jobId"))
+     private List<Job>jobs=new ArrayList<>();
 
+	public List<Job> getJob() {
+		return jobs;
+	}
+
+	public void setJob(List<Job> job) {
+		this.jobs= job;
+	}
 
 	public List<Application> getApplication() {
 		return application;

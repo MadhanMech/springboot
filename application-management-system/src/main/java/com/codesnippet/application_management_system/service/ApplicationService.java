@@ -31,7 +31,7 @@ public class ApplicationService {
 
 		        // Link resume to the applicant
 		        application.setApplicant(applicant);
-
+		       System.out.println("Application "+application);
 		        // Save resume
 		        return applicationRepository.save(application);
 		    }

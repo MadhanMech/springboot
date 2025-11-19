@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.codesnippet.application_management_system.Entity.Applicant;
-import com.codesnippet.application_management_system.Entity.Application;
 import com.codesnippet.application_management_system.Entity.Resume;
 import com.codesnippet.application_management_system.service.ApplicantService;
 
@@ -30,19 +29,23 @@ public class ApplicantController {
     }
     @PostMapping
     public Applicant saveApplicant(@RequestBody Applicant applicant) {
-    	 Resume resume=applicant.getResume();
-    	 
-    	 List<Application> application=applicant.getApplication();
-    	 
-    	 
-    	 if(resume!=null) {
-    		 resume.setApplicant(applicant);
-    		
-    		
-    	 }
-    	
+
+        // 1. One-to-One Resume
+        Resume resume = applicant.getResume();
+        if (resume != null) {
+            resume.setApplicant(applicant);
+        }
+
+      
+        if (applicant.getApplication() != null) {
+            applicant.getApplication().forEach(application -> {
+                application.setApplicant(applicant); // <-- important
+            });
+        }
+
         return applicantService.saveApplicantCrud(applicant);
     }
+
 
     @GetMapping("/page")
     public Iterable<Applicant> getApplicantsWithPagination(
