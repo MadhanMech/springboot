@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.codesnippet.application_management_system.Entity.Applicant;
+import com.codesnippet.application_management_system.Entity.Application;
 import com.codesnippet.application_management_system.Entity.Resume;
 import com.codesnippet.application_management_system.service.ApplicantService;
 
@@ -30,8 +31,13 @@ public class ApplicantController {
     @PostMapping
     public Applicant saveApplicant(@RequestBody Applicant applicant) {
     	 Resume resume=applicant.getResume();
+    	 
+    	 List<Application> application=applicant.getApplication();
+    	 
+    	 
     	 if(resume!=null) {
     		 resume.setApplicant(applicant);
+    		
     		
     	 }
     	

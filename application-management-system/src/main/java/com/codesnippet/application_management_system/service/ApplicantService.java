@@ -23,7 +23,7 @@ public class ApplicantService {
        return applicantCrudRepository.findAll();
     }
     public List<Applicant> getApplicantByStatus(String status) {
-        return applicantJpaRepository.findByStatusOrderByNameAsc(status);
+        return applicantJpaRepository.findByStatusOrderByNameAsc(status);//jpa Respository directly return List 
     }
     public List<Applicant> getApplicantByPartialName(String name) {
         return applicantJpaRepository.findApplicantsByPartialName(name);
@@ -33,7 +33,7 @@ public class ApplicantService {
     }
 
     public Iterable<Applicant> getApplicantsWithPagination(int page, int size) {
-        return applicantPagingAndSortingRepository.findAll(PageRequest.of(page,size));
+        return applicantPagingAndSortingRepository.findAll(PageRequest.of(page,size));//It doesn't direclty return List it return as iterable.
     }
 
 }

@@ -17,21 +17,19 @@ import com.codesnippet.application_management_system.service.ResumeService;
 @RequestMapping("/api/resume")
 public class ResumeController {
 
-    private final ApplicantController applicantController;
+
  
 	@Autowired
 	private ResumeService resumeService;
 
 
-    ResumeController(ApplicantController applicantController) {
-        this.applicantController = applicantController;
-    }
+ 
 	
 	
 	 @PostMapping("/{applicantId}/save")
 	  public ResponseEntity<Resume>saveResume(@PathVariable Long applicantId ,@RequestBody Resume resume){
 		    
-		  System.out.println("applicantId"+applicantId);
+		 
 		   return ResponseEntity.status(HttpStatus.CREATED).body(resumeService.saveResume(applicantId,resume));
 	  }
 	

@@ -1,10 +1,14 @@
 package com.codesnippet.application_management_system.Entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -21,12 +25,24 @@ public class Applicant {
 
     private String status;
 
-    @OneToOne(mappedBy ="applicant",cascade = CascadeType.ALL)//should small not capital not Applicant ,applicant is correct
+    @OneToOne(mappedBy ="applicant",cascade = CascadeType.ALL)//should small not capital not Applicant ,applicant is correct,this cascade use before applicant insert  ,resume will added
     private Resume resume;
     
+    @OneToMany(mappedBy ="applicant",cascade = CascadeType.ALL)//should small not capital not Applicant ,applicant is correct,this cascade use before applicant insert  ,resume will added
+    private List<Application> application=new ArrayList<>(); 
     
     
-    public Resume getResume() {
+
+
+	public List<Application> getApplication() {
+		return application;
+	}
+
+	public void setApplication(List<Application> application) {
+		this.application = application;
+	}
+
+	public Resume getResume() {
 		return resume;
 	}
 
