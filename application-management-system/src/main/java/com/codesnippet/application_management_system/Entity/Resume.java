@@ -18,8 +18,8 @@ public class Resume {
 	 private Long id;
 	 private String content;
 	 @OneToOne
-	 @JoinColumn(name = "applicantId",nullable = false)
-	 @JsonIgnore
+	 @JoinColumn(name = "applicantId",nullable = false)//JoinColumn annotation is used to define foreign key
+	 @JsonIgnore //it ignore serilazation
 	 private Applicant applicant;
 	 
 	 

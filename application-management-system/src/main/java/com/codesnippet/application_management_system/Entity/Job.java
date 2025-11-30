@@ -20,7 +20,7 @@ public class Job {
 	private String title;
 	private String description;
 	
-	@ManyToMany(mappedBy="jobs")
+	@ManyToMany(mappedBy="jobs")//here should be jobs bcz field name in applicant was jobs not job
 	@JsonIgnore
 	private List<Applicant>applicant=new ArrayList<>();
 

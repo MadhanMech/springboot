@@ -28,7 +28,7 @@ public class ResumeService {
 	 
 	 public Resume saveResume(Long applicantId, Resume resume) {
 	        // Fetch the applicant from DB
-		  
+		    System.out.println("Entered Applicataion save");
 	             
 	        Applicant applicant = applicantJpaRpository.findById(applicantId)
 	                .orElseThrow(() -> new RuntimeException("Applicant not found with id: " + applicantId));

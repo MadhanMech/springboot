@@ -31,7 +31,7 @@ public class Applicant {
     @OneToOne(mappedBy ="applicant",cascade = CascadeType.ALL)//should small not capital not Applicant ,applicant is correct,this cascade use before applicant insert  ,resume will added
     private Resume resume;
     
-    @OneToMany(mappedBy ="applicant",cascade = CascadeType.ALL)//should small not capital not Applicant ,applicant is correct,this cascade use before applicant insert  ,resume will added
+    @OneToMany(mappedBy ="applicant",cascade = CascadeType.ALL)//should small not capital not Applicant ,applicant is correct,this cascade use before applicant insert  ,application  will added
     private List<Application> application=new ArrayList<>(); 
     
     @ManyToMany

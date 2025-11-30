@@ -30,16 +30,21 @@ public class ApplicantController {
     @PostMapping
     public Applicant saveApplicant(@RequestBody Applicant applicant) {
 
+    	
+    	  //While using mapping,  child table data save automatically without using repo and controller.
+    	
         // 1. One-to-One Resume
         Resume resume = applicant.getResume();
         if (resume != null) {
             resume.setApplicant(applicant);
         }
-
+  
       
-        if (applicant.getApplication() != null) {
+        if (applicant.getApplication()
+        		!= null) {
+            
             applicant.getApplication().forEach(application -> {
-                application.setApplicant(applicant); // <-- important
+                application.setApplicant(applicant); // <-- important   
             });
         }
 

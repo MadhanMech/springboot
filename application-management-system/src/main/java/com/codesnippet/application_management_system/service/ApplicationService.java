@@ -24,7 +24,7 @@ public class ApplicationService {
 		 public Application saveApplication
 		 (Long applicantId, Application application) {
 		        // Fetch the applicant from DB
-			  
+			    System.out.println("Entered Applicataion save");
 		             
 		        Applicant applicant = applicantJpaRpository.findById(applicantId)
 		                .orElseThrow(() -> new RuntimeException("Applicant not found with id: " + applicantId));
@@ -33,6 +33,8 @@ public class ApplicationService {
 		        application.setApplicant(applicant);
 		       System.out.println("Application "+application);
 		        // Save resume
-		        return applicationRepository.save(application);
+		       return null ;
+		       
+//		        return applicationRepository.save(application);
 		    }
 }
